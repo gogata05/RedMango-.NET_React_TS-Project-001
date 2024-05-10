@@ -1,7 +1,8 @@
 import React from "react";
 import { Footer, Header } from "../Components/Layout";
-import { Home, NotFound } from "../Pages";
+import { Home, MenuItemDetails, NotFound } from "../Pages";
 import { Routes, Route } from "react-router-dom";
+// prettier-ignore
 function App() {
   return (
     <div>
@@ -9,6 +10,7 @@ function App() {
       <div className="pb-5">
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/menuItemDetails/:menuItemId" element={<MenuItemDetails />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
