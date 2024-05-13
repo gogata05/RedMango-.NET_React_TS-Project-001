@@ -4,6 +4,7 @@ import { useGetMenuItemByIdQuery } from "../Apis/menuItemApi";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useUpdateShoppingCartMutation } from "../Apis/shoppingCartApi";
+import { MainLoader } from "../Components/Page/Common";
 // 1daf32f8-e593-4703-9b19-683b59e3ed6f //User ID for Shopping Cart
 function MenuItemDetails() {
   const { menuItemId } = useParams();
@@ -116,7 +117,7 @@ function MenuItemDetails() {
           className="d-flex justify-content-center"
           style={{ width: "100%" }}
         >
-          <div>Loading...</div>
+          <MainLoader />
         </div>
       )}
     </div>

@@ -1,2 +1,3 @@
 import MiniLoader from "./MiniLoader";
-export { MiniLoader };
+import MainLoader from "./MainLoader";
+export { MiniLoader, MainLoader };
