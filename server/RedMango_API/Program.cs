@@ -103,7 +103,7 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseCors(o => o.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(o => o.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().WithExposedHeaders("*"));
 app.UseAuthentication();
 app.UseAuthorization();
 
