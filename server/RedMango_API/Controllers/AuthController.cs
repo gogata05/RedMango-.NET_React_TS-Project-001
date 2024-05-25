@@ -19,6 +19,7 @@ namespace RedMango_API.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private string secretKey;
+
         public AuthController(ApplicationDbContext db, IConfiguration configuration,
             UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
@@ -27,6 +28,46 @@ namespace RedMango_API.Controllers
             _response = new ApiResponse();
             _userManager = userManager;
             _roleManager = roleManager;
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDTO model)
+        {
+            ApplicationUser userFromDb = _db.ApplicationUsers
+                .FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
+
+            bool isValid = await _userManager.CheckPasswordAsync(userFromDb, model.Password);
+
+            if (isValid == false)
+            {
+                _response.Result = new LoginResponseDTO();
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.ErrorMessages.Add("Username or password is incorrect");
+                return BadRequest(_response);
+            }
+
+            //we have to generate JWT Token
+
+
+            LoginResponseDTO loginResponse = new()
+            {
+                Email = userFromDb.Email,
+                Token = "REPLACE WITH ACTUAL TOKEN ONCE WE GENERATE"
+            };
+
+            if (loginResponse.Email == null || string.IsNullOrEmpty(loginResponse.Token))
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                _response.IsSuccess = false;
+                _response.ErrorMessages.Add("Username or password is incorrect");
+                return BadRequest(_response);
+            }
+
+            _response.StatusCode = HttpStatusCode.OK;
+            _response.IsSuccess = true;
+            _response.Result = loginResponse;
+            return Ok(_response);
         }
 
         [HttpPost("register")]
@@ -62,6 +103,7 @@ namespace RedMango_API.Controllers
                         await _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin));
                         await _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer));
                     }
+
                     if (model.Role.ToLower() == SD.Role_Admin)
                     {
                         await _userManager.AddToRoleAsync(newUser, SD.Role_Admin);
@@ -80,11 +122,11 @@ namespace RedMango_API.Controllers
             {
 
             }
+
             _response.StatusCode = HttpStatusCode.BadRequest;
             _response.IsSuccess = false;
             _response.ErrorMessages.Add("Error while registering");
             return BadRequest(_response);
-
         }
     }
 }
