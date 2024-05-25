@@ -1,4 +1,4 @@
-Project RedMango with .NET Beckend and React+TypeScript Frontend
+.NET REST API,React+TypeScript
 
 ## Photos
 
