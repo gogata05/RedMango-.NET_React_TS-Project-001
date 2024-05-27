@@ -9,7 +9,6 @@ import { apiResponse, userModel } from "../Interfaces";
 import { toastNotify } from "../Helper";
 import { RootState } from "../Storage/Redux/store";
 import { useSelector } from "react-redux";
-// 1daf32f8-e593-4703-9b19-683b59e3ed6f //User ID for Shopping Cart
 function MenuItemDetails() {
   const { menuItemId } = useParams();
   const { data, isLoading } = useGetMenuItemByIdQuery(menuItemId);
@@ -39,7 +38,7 @@ function MenuItemDetails() {
     const response: apiResponse = await updateShoppingCart({
       menuItemId: menuItemId,
       updateQuantityBy: quantity,
-      userId: "1daf32f8-e593-4703-9b19-683b59e3ed6f",
+      userId: userData.id,
     });
 
     if (response.data && response.data.isSuccess) {
