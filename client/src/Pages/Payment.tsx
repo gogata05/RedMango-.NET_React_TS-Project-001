@@ -9,7 +9,6 @@ function Payment() {
   const {
     state: { apiResult, userInput },
   } = useLocation();
-
   const stripePromise = loadStripe(
     "pk_test_51PDiPUHnhnqR1L0xHDf9eAwQOR6OdzELRFra7t5mgP1WLPHMl2CV0Rh2q7tYJJrB8R5cqrAyPQJ58lmjny9QGkBX00RCReXyFq"
   );
@@ -23,7 +22,7 @@ function Payment() {
       <div className="container m-5 p-5">
         <div className="row">
           <div className="col-md-7">
-            <OrderSummary />
+            <OrderSummary data={apiResult} userInput={userInput} />
           </div>
           <div className="col-md-5">
             <PaymentForm />
