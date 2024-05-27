@@ -13,13 +13,24 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useGetShoppingCartQuery } from "../Apis/shoppingCartApi";
 import { setShoppingCart } from "../Storage/Redux/shoppingCartSlice";
-// prettier-ignore
+import jwt_decode from "jwt-decode";
+import { userModel } from "../Interfaces";
+import { setLoggedInUser } from "../Storage/Redux/userAuthSlice";
+
 function App() {
   const dispatch = useDispatch();
 
   const { data, isLoading } = useGetShoppingCartQuery(
-    "1daf32f8-e593-4703-9b19-683b59e3ed6f"
+    "b7ae37bf-09b1-4b47-9ce1-c963031d2920"
   );
+
+  useEffect(() => {
+    const localToken = localStorage.getItem("token");
+    if (localToken) {
+      const { fullName, id, email, role }: userModel = jwt_decode(localToken);
+      dispatch(setLoggedInUser({ fullName, id, email, role }));
+    }
+  }, []);
 
   useEffect(() => {
     if (!isLoading) {
