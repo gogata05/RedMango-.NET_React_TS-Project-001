@@ -1,6 +1,9 @@
 import React from "react";
 import { Footer, Header } from "../Components/Layout";
 import {
+  AccessDenied,
+  AuthenticationTest,
+  AuthenticationTestAdmin,
   Home,
   Login,
   MenuItemDetails,
@@ -21,7 +24,7 @@ function App() {
   const dispatch = useDispatch();
 
   const { data, isLoading } = useGetShoppingCartQuery(
-    "b7ae37bf-09b1-4b47-9ce1-c963031d2920"
+    "1daf32f8-e593-4703-9b19-683b59e3ed6f"
   );
 
   useEffect(() => {
@@ -52,6 +55,17 @@ function App() {
           <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
+          <Route
+            path="/authentication"
+            element={<AuthenticationTest />}
+          ></Route>
+          <Route
+            path="/authorization"
+            element={<AuthenticationTestAdmin />}
+          ></Route>
+          <Route path="/accessDenied" element={<AccessDenied />} />
+
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
