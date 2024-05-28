@@ -1,4 +1,4 @@
-import orderDetail from "./orderDetail";
+import orderDetail from "./orderDetailModel";
 
 export default interface orderHeader {
   orderHeaderId?: number;
