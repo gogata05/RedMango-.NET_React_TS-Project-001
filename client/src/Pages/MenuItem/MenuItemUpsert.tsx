@@ -102,7 +102,7 @@ function MenuItemUpsert() {
 
     formData.append("Name", menuItemInputs.name);
     formData.append("Description", menuItemInputs.description);
-    formData.append("SpecialTag", menuItemInputs.specialTag);
+    formData.append("SpecialTag", menuItemInputs.specialTag ?? "");
     formData.append("Category", menuItemInputs.category);
     formData.append("Price", menuItemInputs.price);
     if (imageToDisplay) formData.append("File", imageToStore);
@@ -164,7 +164,6 @@ function MenuItemUpsert() {
             />
             <select
               className="form-control mt-3 form-select"
-              placeholder="Enter Category"
               name="category"
               value={menuItemInputs.category}
               onChange={handleMenuItemInput}
