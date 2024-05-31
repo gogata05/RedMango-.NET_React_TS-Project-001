@@ -1,5 +1,29 @@
 .NET REST API,React+TypeScript
 
+# RedMango
+
+## Introduction
+
+RedMango is application for buying food.
+
+## Features
+
+- Stripe Payment
+- Toast Notifications
+- Roles
+- .NET REST API
+- React
+- TypeScript
+
+## How to use?
+
+- 0.Download the repository and extract it to folder
+- 1.Open "RedMango_API.sln" with visual studio 2022
+- 2.Fix "ConnectionStrings" in appsettings.json
+- 3.Client folder with visual studio code
+- 4.npm i
+- 5.npm start
+
 ## Photos
 
 Swagger Endpoints:
