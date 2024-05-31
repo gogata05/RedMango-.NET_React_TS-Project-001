@@ -82,6 +82,10 @@ Order Confirmed:
 
 ![image](/client/Images/Order%20Confirmed.png)
 
+Loader
+
+![image](/client/Images/Loader_Spinner.png)
+
 Toast Notifications:
 
 ![image](/client/Images/Toast%20Notifications.png)
