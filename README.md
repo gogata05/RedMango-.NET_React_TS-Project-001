@@ -1,10 +1,10 @@
 .NET REST API,React+TypeScript
 
-# RedMango
+# RestaurantDelivery
 
 ## Introduction
 
-RedMango is application for buying food.
+RestaurantDelivery is application for buying restaurant food.
 
 ## Features
 
@@ -18,7 +18,7 @@ RedMango is application for buying food.
 ## How to use?
 
 - 0.Download the repository and extract it to folder
-- 1.Open "RedMango_API.sln" with visual studio 2022
+- 1.Open "Restaurant_API.sln" with visual studio 2022
 - 2.Fix "ConnectionStrings" in appsettings.json
 - 3.Client folder with visual studio code
 - 4.npm i
@@ -28,7 +28,7 @@ RedMango is application for buying food.
 
 Swagger Endpoints:
 
-![image](https://imgur.com/sWpWF89.png)
+![image](https://i.imgur.com/pvzMENj.png)
 
 Home page with Search and Dashboard:
 
