@@ -1,4 +1,4 @@
-.NET REST API,React+TypeScript
+.NET REST API, React+TypeScript
 
 # RestaurantDelivery
 
